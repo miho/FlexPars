@@ -7,7 +7,7 @@ cmake_minimum_required( VERSION 2.4.0 )
 
 add_subdirectory( src ) # tells cmake to process this directory
 
-set_target_properties( flexpars PROPERTIES VERSION 0.1 )
+set_target_properties( flexpars PROPERTIES VERSION 0.02 )
 
 IF( UNIX )
 	MESSAGE( STATUS "This is UNIX" )
