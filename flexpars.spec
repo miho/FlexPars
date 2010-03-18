@@ -20,7 +20,7 @@ Group:        System/Libraries
 Summary:      Small library to easily handle custom file formats 
 BuildRoot:    %{_tmppath}/%{name}-%{version}-build  
 URL:          http://github.com/miho/FlexPars
-Version:      0.02_HEAD
+Version:      0.02
 Release:      0
 Source:       %name-%{version}.tar.gz
   
