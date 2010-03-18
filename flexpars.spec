@@ -1,18 +1,18 @@
 Name:         flexpars  
 
 %if %{defined suse_version}
-BuildRequires: cmake
-Requires:
+BuildRequires: gcc-c++ cmake
+#Requires:
 %endif
 
 %if %{defined fedora_version} || 0%{?rhel_version} || 0%{?centos_version}
 BuildRequires: gcc-c++ cmake
-Requires:
+#Requires:
 %endif
 
 %if %{defined mandriva_version}
 BuildRequires: gcc-c++ cmake
-Requires:
+#Requires:
 %endif
 
 License:      LGPL  
