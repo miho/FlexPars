@@ -1,4 +1,4 @@
-Name:         xds-viewer  
+Name:         flexpars  
 
 %if %{defined suse_version}
 BuildRequires: cmake
