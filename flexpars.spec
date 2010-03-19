@@ -38,7 +38,13 @@ Authors:
   
 %build 
 
-cmake -DCMAKE_INSTALL_PREFIX=$RPM_BUILD_ROOT/usr .
+
+%ifarch x86_64
+  cmake -DCMAKE_INSTALL_PREFIX=$RPM_BUILD_ROOT/usr . -DLIB_SUFFIX=64
+%else
+  cmake -DCMAKE_INSTALL_PREFIX=$RPM_BUILD_ROOT/usr .
+%endif
+
 make  
   
 %install  
@@ -50,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
   
 %files
 %defattr(-,root,root)
-/usr/lib/flexpars/
-/usr/lib/flexpars/*
+%{_libdir}/flexpars/
+%{_libdir}/flexpars/*
 /usr/include/flexpars/
 /usr/include/flexpars/*

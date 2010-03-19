@@ -2,4 +2,6 @@
 *.so*
 *.o
 *.a
+
 build
+dist

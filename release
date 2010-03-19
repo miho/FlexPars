@@ -1,0 +1,65 @@
+#!/bin/bash
+
+PRJ="flexpars"
+DIR="dist"
+
+if [ "$1" == "" ]
+then
+	echo ">> ERROR: no command specified!"
+	echo ">> possible commands are: ar, push."
+	exit 1
+fi
+
+case "$1" in
+	push)	echo ">> push not supported for this project!"
+		exit 1
+		#echo ">> pushing archives to server"
+		#if [ -d "$DIR" ]
+		#then
+		#	scp tmp/* miho@mihosoft.eu:/git/releases/"$PRJ"
+		#	rm -rf "$DIR"
+		#else
+		#	echo ">> ERROR: nothing to push!"
+		#fi
+		;;
+	ar)
+		if [ "$2" == "" ]
+		then
+			echo ">> ERROR: tag not specified."
+			echo ">> Example: release ar v1.4.0"
+			exit 1
+		else
+			CWD="$(pwd)"
+			#cd "$PRJ"
+			cd "$CWD"
+			BASE="$PRJ"-"$2"
+			DOC="$PRJ"-"$2"-API-doc
+			echo ">> creating $BASE archive..."
+			mkdir -p "$DIR"	
+			git archive --format=tar --prefix="$BASE"/ "$2" "." | gzip > "$DIR/$BASE".tar.gz
+			
+			exit 0 # we exit the rest is not finished yet
+
+
+			echo ">> building documentation.."
+
+			cd "$DIR"
+			echo ">>> unpacking archive..."
+			tar xvzf "$BASE".tar.gz > /dev/null
+			
+			cd "$BASE/$PRJ"
+			echo ">>> running doxygen task..."
+			doxygen > /dev/null
+			mv dist/doc "$CWD/$DIR/$DOC"
+	
+			echo ">>> compress doc folder..."
+			cd "$CWD/$DIR"
+			zip -r "$DOC".zip "$DOC" > /dev/null
+			
+			echo ">> cleanup..."
+			rm -rf "$DOC"
+			rm -rf "$BASE"
+
+		fi
+		;;
+esac
