@@ -1,6 +1,6 @@
 FIND_PATH(GENSOLVER_INCLUDE_DIR libgensolver.h /usr/include/gensolver /usr/local/include/gensolver)
 
-FIND_LIBRARY(GENSOLVER_LIBRARY NAMES gensolver PATHS /usr/lib /usr/local/lib /usr/lib/gensolver /usr/local/lib/gensolver ) 
+FIND_LIBRARY(GENSOLVER_LIBRARY NAMES gensolver PATHS /usr/lib64 /usr/local/lib64 /usr/lib64/gensolver /usr/local/lib64/gensolver /usr/lib /usr/local/lib /usr/lib/gensolver /usr/local/lib/gensolver ) 
 
 IF (GENSOLVER_INCLUDE_DIR AND GENSOLVER_LIBRARY)
    SET(GENSOLVER_FOUND TRUE)
