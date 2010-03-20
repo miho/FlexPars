@@ -29,16 +29,15 @@ bool File::load( std::string fileName )
 
 	if ( !file )
 	{
-		std::cerr << "Error: File doesn't exist!" << std::endl;
+                std::cerr << "Error: File \"" << fileName << "\" doesn't exist!" << std::endl;
 		success = false;
-	}
+        } else {
 
-	std::stringstream stream;
+            std::stringstream stream;
 
-	file2StringStream( file, stream );
+            file2StringStream( file, stream );
 
-	for ( unsigned int i = 0; i < elements().size();i++ )
-	{
+            for ( unsigned int i = 0; i < elements().size();i++ ) {
 		success = elements()[i]->read( stream );
 
 		if ( !success )
@@ -46,7 +45,8 @@ bool File::load( std::string fileName )
 			file.close();
 			break;
 		}
-	}
+            }
+        }
 
 	file.close();
 
@@ -61,7 +61,7 @@ bool File::save( std::string fileName )
 
 	if ( !file )
 	{
-		std::cerr << "Error: Can't create File!" << std::endl;
+                std::cerr << "Error: Can't create file \"" << fileName << "\"!" << std::endl;
 		success = false;
 	}
 

@@ -12,6 +12,7 @@ set(_SRCS
 	DoubleElement.cpp
 	StringElement.cpp
 	HeaderTag.cpp
+	IntegerField.cpp
 	DoubleField.cpp
 	#test.cpp
 	)

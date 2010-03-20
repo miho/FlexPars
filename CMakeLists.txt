@@ -9,7 +9,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules/")
 
 add_subdirectory(src) # tells cmake to process this directory
 
-set_target_properties(flexpars PROPERTIES VERSION 0.02)
+set_target_properties(flexpars PROPERTIES VERSION 0.03)
 
 IF(UNIX)
 	MESSAGE( STATUS "This is UNIX" )
