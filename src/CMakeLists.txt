@@ -33,6 +33,10 @@ set_target_properties(flexpars-static PROPERTIES OUTPUT_NAME flexpars)
 			#${CMAKE_CURRENT_BINARY_DIR}
 #                        )
 
-install(TARGETS flexpars DESTINATION lib${LIB_SUFFIX}/flexpars)
-install(TARGETS flexpars-static DESTINATION lib${LIB_SUFFIX}/flexpars)
+# install(TARGETS flexpars DESTINATION lib${LIB_SUFFIX}/flexpars)
+# install(TARGETS flexpars-static DESTINATION lib${LIB_SUFFIX}/flexpars)
+
+install(TARGETS flexpars DESTINATION lib${LIB_SUFFIX})
+install(TARGETS flexpars-static DESTINATION lib${LIB_SUFFIX})
+
 INSTALL(DIRECTORY ../include/ DESTINATION include/flexpars)
